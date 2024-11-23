@@ -1,20 +1,4 @@
 ---
 - name: Unblock Wifi
-  shell: 
+  shell:
     cmd: rfkill unblock 0 
-
-# - name: Wifi adapter up
-#   shell: 
-#     cmd: ifconfig "{{ wifi_adapter}}" "{{ host_ipv4_ipaddress }}"
-
-# - name: Enable and (re-)start services
-#   ansible.builtin.systemd:
-#     name: "{{ item }}"
-#     state: restarted
-#     enabled: yes
-#     daemon_reload: yes
-#     masked: no
-#   with_items:
-#     - dhcpcd
-#     - hostapd
-  

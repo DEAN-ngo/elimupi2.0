@@ -4,7 +4,7 @@
     name: nginx
     state: restarted
 
-- name: Restart dnsmasq 
+- name: Restart Networkmanager
   ansible.builtin.service:
-    name: dnsmasq 
+    name: Networkmanager
     state: restarted

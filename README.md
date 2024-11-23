@@ -4,7 +4,7 @@ The purpose of this project is to provide a DEAN digital classroom environment f
 
 Please visit https://www.dean.ngo/solutions/elimupi/  for more information.
 
-## Introduction 
+## Introduction
 
 This version of the ElimuPi build supports:
 
@@ -29,22 +29,22 @@ This version of the ElimuPi build supports:
  - Ansible 2.10 > installed.
  - [ssh_askpass](https://packages.ubuntu.com/search?keywords=ssh-askpass) installed.
  - [Raspberry Pi Imager](https://www.raspberrypi.com/software/)  installed.
- - [Raspberry Pi OS Lite 64 bits image , Release date: March 15th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64-lite.img.xz?_gl=1*1q9l249*_ga*NjU5MDEzODA2LjE3MTgzOTMxNTQ.*_ga_22FD70LWDS*MTcxODQ0OTM0MS4zLjAuMTcxODQ0OTM0MS4wLjAuMA..)
+ - [Raspberry Pi OS Lite 64 bits image , Release date:  November 19th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-11-18/2024-11-13-raspios-bookworm-arm64-lite.img.xz)
 
  - Ansible vault password ( contact DEAN development)
- 
+
 ## Install Raspberry Pi OS
 
  - Use Raspberry PI Imager to write the downloaded image to the SD-card using instructions at  https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system.
  - Insert the SD-card.
  - Start Raspberry PI Imager.
- - Under **Raspberry Pi Device** select **Raspberry Pi 4**. 
- - Under **Operating system** select **Choose OS --> Use Custom** and select the downloaded image - [Raspberry Pi OS Lite 64 bits image , Release date: December 5th 2023.](https://downloads.raspberrypi.com/raspios_oldstable_lite_armhf/images/raspios_oldstable_lite_armhf-2023-12-06/2023-12-05-raspios-bullseye-armhf-lite.img.xz)
+ - Under **Raspberry Pi Device** select **Raspberry Pi 4**.
+ - Under **Operating system** select **Choose OS --> Use Custom** and select the downloaded image - [Raspberry Pi OS Lite 64 bits image , Release date: November 19th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-11-18/2024-11-13-raspios-bookworm-arm64-lite.img.xz)
  - Under **Storage** and select the SD-card device.
- - Select **Advanced options** -->  **Enable SSH** --> **Use password authentication**. 
+ - Select **Advanced options** -->  **Enable SSH** --> **Use password authentication**.
  - Set **Username** to: **pi** and **Password** to : **elimupi** and select **SAVE**.
  - Select **WRITE**.
-  
+
  When the image has been successfully written insert the SD-card into the Raspberry Pi and boot the device connected to local LAN.
 
 ## Build ElimuPi Image
@@ -53,7 +53,7 @@ Provision the ElimuPi software by running the ansible-play book against local Ra
 
  - Find the Pi's assigned IP address on your local LAN. ( via Wifi router or a nmap).
  - Git clone this repo and cd elimupi/ansible directory of this repo.
- - Adjust the current IP adresss of key : ansible_host  in file  inventory.yml to your Pi's local assigned IP address. 
+ - Adjust the current IP adresss of key : ansible_host  in file  inventory.yml to your Pi's local assigned IP address.
  - Increment version release number variable, **elimupi_release**: in file ansible/group_vars/all/vars.yml if needed.
  - Install Ansible collections:
 
@@ -69,15 +69,15 @@ Provision the ElimuPi software by running the ansible-play book against local Ra
 
 The installation will take approximately 20 minutes to finish and there shouldn't be any errors.
 
-## Create ElimuPi image copy 
+## Create ElimuPi image copy
 
  - Create a image copy of the SD-card with the ElimuPi software installed using instructions at https://beebom.com/how-clone-raspberry-pi-sd-card-windows-linux-macos/
- - Shrink cloned the image file (Linux Only) using [PiShrink](https://github.com/Drewsif/PiShrink) and the compression option -Za 
- - Name the image: **ElimuPi_Image_<YYYY-MM-DD>-raspios-bullseye-arm64_lite_Release_<-Version->.img.xz** e.g.
+ - Shrink cloned the image file (Linux Only) using [PiShrink](https://github.com/Drewsif/PiShrink) and the compression option -Za
+ - Name the image: **ElimuPi_Image_<YYYY-MM-DD>-raspios-bookworm-arm64_lite_Release_<-Version->.img.xz** e.g.
 
 This should produce a xz compressed Elimupi image file.
 
-The image file can than be directly written to other SD-cards using Raspberry Pi Imager selecting the image with Use Custom Operation System option. 
+The image file can than be directly written to other SD-cards using Raspberry Pi Imager selecting the image with Use Custom Operation System option.
 
 # Connecting to Elimupi
 
@@ -107,4 +107,4 @@ The following links are provided to access the resources:
 After you finished the installation you need to visit [admin.elimupi.online](http://admin.elimupi.online) login with the Admin account and go to Manage --> "Please follow the directions to register your device, so that it can synchronize with the central server."
 
 ## Notes
-**NOTE1**: This install is tested to work with [Raspberry Pi OS Lite 64 bits image , Release date: March 15th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64-lite.img.xz?_gl=1*1q9l249*_ga*NjU5MDEzODA2LjE3MTgzOTMxNTQ.*_ga_22FD70LWDS*MTcxODQ0OTM0MS4zLjAuMTcxODQ0OTM0MS4wLjAuMA..) on a Raspberry Pi model 5.
+**NOTE1**: This install is tested to work with [Raspberry Pi OS Lite 64 bits image , Release date: November 19th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-11-18/2024-11-13-raspios-bookworm-arm64-lite.img.xz) on a Raspberry Pi model 5.

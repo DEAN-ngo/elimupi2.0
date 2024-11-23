@@ -1,7 +1,7 @@
 ---
 # Elimupi release version
-elimupi_release: 3.4.0
-elimupi_release_file: "/root/elimupi_release-{{ elimupi_release }}-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}" 
+elimupi_release: 3.5.0
+elimupi_release_file: "/root/elimupi_release-{{ elimupi_release }}-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 
 host_ipv4_ipaddress: '10.11.2.50'
 ap_subnet: '10.11.2.0/24'
@@ -20,14 +20,14 @@ hosts_default_ipv4_hosts:
     - "{{ inventory_hostname }}"
     - "{{ inventory_hostname_short }}"
 
-    - start.elimupi.online 
+    - start.elimupi.online
     - local.elimupi.online
-    - kolibri.elimupi.online 
-    - fdroid.elimupi.online 
-    - moodle.elimupi.online 
-    - files.elimupi.online 
-    - wiki.elimupi.online 
-    - admin.elimupi.online 
+    - kolibri.elimupi.online
+    - fdroid.elimupi.online
+    - moodle.elimupi.online
+    - files.elimupi.online
+    - wiki.elimupi.online
+    - admin.elimupi.online
     - scratch.elimupi.online
 
 
@@ -36,7 +36,7 @@ ap_adapter: uap0
 sta_adapter: wlan0
 dns_server: 8.8.8.8
 
-system_locales:  
+system_locales:
   - nl_NL.UTF-8
   - en_GB.UTF-8
   - sw_KE
@@ -93,9 +93,9 @@ users:
 groups_to_create:
   - name: admins
     gid: 1001
-  - name: teachers 
+  - name: teachers
     gid: 1002
-  - name: students 
+  - name: students
     gid: 1003
 
 # Dnsmasq
@@ -114,16 +114,6 @@ dnsmasq_dnsmasq_conf:
 dnsmasq_service_state: stopped
 dnsmasq_service_enabled: false
 
-# Access point
-wireless_lan_iface: "{{ ap_adapter }}"
-host_ssid: elimu
-hostapd_password: 1234567890
-host_channel: 8
-host_wifi_mode: g
-driver_name: nl80211
-host_country_code: KE   
-host_wireless_n: False
-
 # Wifi Client settings
 wifi_settings:
   wifi_networks:
@@ -139,7 +129,7 @@ wifi_settings:
 openldap_server_domain: elimupi.local
 
 # This is the password for admin for openldap
-openldap_server_rootpw: "{{ elimupi_ldap_password }}" 
+openldap_server_rootpw: "{{ elimupi_ldap_password }}"
 # Root dn
 openldap_server_rootdn: cn=Manager,{{ _basedn }}
 
@@ -270,7 +260,7 @@ moodle_admin_email: admin@elimupi.online
 moodle_enable_debug: false
 
 # Kolibri config
-# The databases and storage 
+# The databases and storage
 
 kolibri_install: True
 kolibri_enabled: True
@@ -282,7 +272,7 @@ kolibri_home: "/mnt/content/kolibri-home"
 kolibri_http_port: 8080
 kolibri_url: /kolibri/
 kolibri_path: "{{ iiab_base }}/kolibri"
-kolibri_exec_path: /usr/bin/kolibri 
+kolibri_exec_path: /usr/bin/kolibri
 
 # Kolibri system user
 #kolibri_user: kolibri
@@ -290,7 +280,7 @@ kolibri_user: pi
 
 # Kolibri setup will be provisioned with default administration account, preset and
 # language. You could turn this to 'False' while reinstalling kolibri.
-kolibri_provision: False 
+kolibri_provision: False
 
 # Kolibri Facility name
 kolibri_facility: 'DEAN - Elimupi'

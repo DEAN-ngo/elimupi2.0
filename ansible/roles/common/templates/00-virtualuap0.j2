@@ -1,0 +1,50 @@
+#!/bin/sh
+
+SSID="{{ host_ssid }}"
+IFNAME_STA="{{ sta_adapter }}"
+IFNAME_AP="{{ ap_adapter }}"
+PASSWD="{{ wpa_passphrase }}"
+CONNAME="{{ ap_adapter }}_AP"
+IPV4ADRR="10.11.2.1/24"
+
+if [ "$1" = "$IFNAME_STA" ]
+
+then
+
+if [ "$2" = "up" ]
+
+then
+      # sta interface set power_save off
+      sudo iw $IFNAME_STA set power_save off
+
+      # create interface for AP
+      sudo iw dev $IFNAME_STA interface add $IFNAME_AP type __ap
+
+      # IP MASQUERADE rule
+      iptables -t nat -A POSTROUTING -s {{ ap_subnet }} ! -d {{ ap_subnet }} -j MASQUERADE
+
+      sleep 2
+
+      # ap interface set power_save off
+      sudo iw $IFNAME_AP set power_save off
+
+      # delete Wifi connection
+      nmcli con delete $CONNAME
+
+      # (re)add Wifi AP
+      nmcli con add type wifi ifname $IFNAME_AP mode ap con-name $CONNAME ssid $SSID autoconnect false 802-11-wireless.band bg ipv4.method shared wifi-sec.key-mgmt wpa-psk wifi-sec.psk $PASSWD wifi-sec.proto rsn wifi-sec.group ccmp wifi-sec.pairwise ccmp
+
+      nmcli con modify $CONNAME ipv4.addr $IPV4ADRR
+      nmcli con modify $CONNAME ipv6.method disabled
+      nmcli con up $CONNAME
+
+fi
+
+if [ "$2" = "down" ]
+
+then
+      # delete ap interface
+      sudo iw dev $IFNAME_AP del
+fi
+
+fi
