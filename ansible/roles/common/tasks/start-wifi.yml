@@ -1,4 +1,4 @@
 ---
 - name: Unblock Wifi
   shell:
-    cmd: rfkill unblock 0 
+    cmd: raspi-config nonint do_wifi_country KE

@@ -10,8 +10,6 @@
     owner: root
     group: root
     mode: '0744'
-    notify:
-    - Restart Networkmanager
 
 - name: Copy Networkmanager dispatcher script
   ansible.builtin.template:
@@ -20,8 +18,6 @@
     owner: root
     group: root
     mode: '0744'
-    notify:
-    - Restart Networkmanager
 
 - name: Configure WiFi network
   nmcli:

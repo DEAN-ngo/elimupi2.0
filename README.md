@@ -29,7 +29,7 @@ This version of the ElimuPi build supports:
  - Ansible 2.10 > installed.
  - [ssh_askpass](https://packages.ubuntu.com/search?keywords=ssh-askpass) installed.
  - [Raspberry Pi Imager](https://www.raspberrypi.com/software/)  installed.
- - [Raspberry Pi OS Lite 64 bits image , Release date:  November 19th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-11-18/2024-11-13-raspios-bookworm-arm64-lite.img.xz)
+ - [Raspberry Pi OS Lite 64 bits image , Release date:  November 19th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-11-19/2024-11-19-raspios-bookworm-arm64-lite.img.xz)
 
  - Ansible vault password ( contact DEAN development)
 
@@ -38,8 +38,8 @@ This version of the ElimuPi build supports:
  - Use Raspberry PI Imager to write the downloaded image to the SD-card using instructions at  https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system.
  - Insert the SD-card.
  - Start Raspberry PI Imager.
- - Under **Raspberry Pi Device** select **Raspberry Pi 4**.
- - Under **Operating system** select **Choose OS --> Use Custom** and select the downloaded image - [Raspberry Pi OS Lite 64 bits image , Release date: November 19th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-11-18/2024-11-13-raspios-bookworm-arm64-lite.img.xz)
+ - Under **Raspberry Pi Device** select **No filtering**.
+ - Under **Operating system** select **Choose OS --> Raspberry PI OS other** and select the downloaded image - [Raspberry Pi OS Lite (64-bit), A port of Debian Bookworm wiyh n Desktop Environment ( Compatible with PI 3/4/400/5 ), Release date: November 19th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-11-19/2024-11-19-raspios-bookworm-arm64-lite.img.xz)
  - Under **Storage** and select the SD-card device.
  - Select **Advanced options** -->  **Enable SSH** --> **Use password authentication**.
  - Set **Username** to: **pi** and **Password** to : **elimupi** and select **SAVE**.
@@ -107,4 +107,4 @@ The following links are provided to access the resources:
 After you finished the installation you need to visit [admin.elimupi.online](http://admin.elimupi.online) login with the Admin account and go to Manage --> "Please follow the directions to register your device, so that it can synchronize with the central server."
 
 ## Notes
-**NOTE1**: This install is tested to work with [Raspberry Pi OS Lite 64 bits image , Release date: November 19th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-11-18/2024-11-13-raspios-bookworm-arm64-lite.img.xz) on a Raspberry Pi model 5.
+**NOTE1**: This install is tested to work with [Raspberry Pi OS Lite 64 bits image , Release date: November 19th 2024.](https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2024-11-19/2024-11-19-raspios-bookworm-arm64-lite.img.xz) on a Raspberry Pi model 4 and 5.

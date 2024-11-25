@@ -35,6 +35,7 @@ lan_adapter: eth0
 ap_adapter: uap0
 sta_adapter: wlan0
 dns_server: 8.8.8.8
+ap_ssid: elimu
 
 system_locales:
   - nl_NL.UTF-8
@@ -110,7 +111,7 @@ dnsmasq_dnsmasq_conf:
     #domain-needed
     dhcp-range=10.11.2.51,10.11.2.250,255.255.255.0,12h
 
-# we don't want to start as startwifi.sh will do this and create virtual uap01
+# dnsmasq is managed by NetworkManager
 dnsmasq_service_state: stopped
 dnsmasq_service_enabled: false
 
@@ -125,6 +126,7 @@ wifi_settings:
      ssid: "dean-4g"
      interface: "wlan0"
      psk: "{{ ssid2_passphrase }}"
+
 # OpenLDAP
 openldap_server_domain: elimupi.local
 
